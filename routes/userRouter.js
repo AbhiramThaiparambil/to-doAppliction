@@ -1,11 +1,15 @@
 const userRouter=require('express').Router()
 const user = require('../model/user')
-const User=require('../model/user')
+const userController=require('../controller/userController')
 
-userRouter.get('/',(req,res)=>{
-   
-    res.send('hello')
+userRouter.get('/',userController.home)
+userRouter.get('/login',userController.login)
+userRouter.post('/loginData',userController.loginData) 
+    
 
 
-});
+
+userRouter.post('/registerData',userController.regData)
+  
+
 module.exports=userRouter
