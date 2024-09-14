@@ -205,18 +205,13 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Login Successful',
-                            text: 'You have been logged in successfully!',
-                        });
+                    if (data.message=="redirctHome") {
+                        window.location.href = '/home';
+                        // successAleart(data.message)
                     } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Login Failed',
-                            text: data.message || 'An error occurred during login.',
-                        });
+                        errorAleart(data.message)
+
+        
                     }
                 });
             }
@@ -251,18 +246,13 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Registration Successful',
-                            text: 'You have been registered successfully!',
-                        });
+                    if (data.message=="redirctHome") {
+                        window.location.href = '/home';
+
+                    //    successAleart(data.message)
                     } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Registration Failed',
-                            text: data.message || 'An error occurred during registration.',
-                        });
+                        errorAleart(data.message)
+        
                     }
                 });
             }
@@ -297,6 +287,105 @@
             passwordField.type = this.checked ? 'text' : 'password';
             confirmPasswordField.type = this.checked ? 'text' : 'password';
         });
+
+
+      function successAleart(message){
+        Swal.fire({
+    icon: 'success',
+    title: 'Registration Successful',
+    text: message,
+    iconColor: '#FF69B4',
+    confirmButtonColor: '#FF1493',
+    showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+    },
+    customClass: {
+        popup: 'swal-pink-theme'
+    },
+    backdrop: `
+        rgba(255, 192, 203, 0.4)
+    `,
+    html: `
+        <style>
+            .swal-pink-theme {
+                background-color: #FFF0F5 !important;
+                border-radius: 15px !important;
+                box-shadow: 0 0 20px rgba(255, 105, 180, 0.4) !important;
+            }
+            .swal2-title {
+                color: #C71585 !important;
+                font-weight: bold !important;
+            }
+            .swal2-confirm {
+                background-color: #FF1493 !important;
+                box-shadow: 0 2px 8px rgba(255, 20, 147, 0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            .swal2-confirm:hover {
+                background-color: #FF69B4 !important;
+                transform: translateY(-2px) !important;
+            }
+        </style>
+    `
+});
+      }
+
+
+      function errorAleart(message){
+
+        Swal.fire({
+        icon: 'error',
+        title:  message,
+        text: message,
+        iconColor: '#FF1493',
+        confirmButtonColor: '#FF69B4',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        },
+        customClass: {
+            popup: 'swal-pink-error',
+            title: 'swal2-title',
+            htmlContainer: 'swal2-html-container'
+        },
+        backdrop: `
+            rgba(255, 192, 203, 0.4)
+        `,
+        html: `
+            <style>
+                .swal-pink-error {
+                    background-color: #FFF0F5 !important;
+                    border-radius: 15px !important;
+                    box-shadow: 0 0 20px rgba(255, 20, 147, 0.4) !important;
+                    border-top: 4px solid #FF1493 !important;
+                }
+                .swal2-title {
+                    color: #C71585 !important;
+                    font-weight: bold !important;
+                }
+                .swal2-html-container {
+                    color: #DB7093 !important;
+                }
+                .swal2-confirm {
+                    background-color: #FF69B4 !important;
+                    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.3) !important;
+                    transition: all 0.3s ease !important;
+                }
+                .swal2-confirm:hover {
+                    background-color: #FF1493 !important;
+                    transform: translateY(-2px) !important;
+                }
+            </style>
+        `
+    });
+
+      }
+
     </script>
 </body>
 </html>
