@@ -12,12 +12,13 @@ app.set("ejs", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}));
+app.use(
+  session({
+    secret:'this is Secret',
+    resave: true,
+    saveUninitialized: false,
+  })
+);
 
 app.use("/", userRouter);
 

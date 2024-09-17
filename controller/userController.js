@@ -1,18 +1,11 @@
 const User = require('../model/user');
 const bcrypt = require('bcrypt');
 
-let home = async (req, res) => {
-    try {
-        res.render('home.ejs');
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).json({ message: 'An error occurred while rendering the home page.' });
-    }
-};
+
 
 let toDo = async (req, res) => {
     try {
-        res.render('home.ejs');
+        res.render('toDo.ejs');
     } catch (error) {
         console.error(error.message);
         res.status(500).json({ message: 'An error occurred while rendering the toDo page.' });
@@ -21,6 +14,16 @@ let toDo = async (req, res) => {
 
 let login = (req, res) => {
     res.render('login.ejs');
+};
+
+
+let home = async (req, res) => {
+    try {
+        res.render('home.ejs');
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ message: 'An error occurred while rendering the toDo page.' });
+    }
 };
 
 let loginData = async (req, res) => {
@@ -37,7 +40,11 @@ let loginData = async (req, res) => {
 
             if (isMatch) {
                 req.session.userId = userdata._id;
-                res.status(200).json({ message: 'redirctHome' });
+                console.log('home');
+                            // res.status(200) .json({ message: 'redirctHome' });
+
+                res.redirect('/home');
+            
 
             } else {
                 res.status(400).json({ message: 'Invalid credentials' });
@@ -77,7 +84,7 @@ let regData = async (req, res) => {
 
         if (saved) {
             req.session.userId = saved._id;
-            res.status(200).json({ message: 'redirctHome' });
+            // res.status(200).json({ message: 'redirctHome' });
         } else {
             res.status(400).json({ message: 'Sorry for the inconvenience, please try again.' });
         }

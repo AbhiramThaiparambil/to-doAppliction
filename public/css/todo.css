@@ -1,0 +1,111 @@
+.todo-container {
+    background-color: #ffff;
+    border: 0.5px solid rgba(80, 80, 80, 0.329);
+
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+[data-bs-theme="dark"] .todo-container {
+    background-color: #3a3a3a;
+}
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+[data-bs-theme="dark"] .todo-header {
+    border-bottom-color: #4a4a4a;
+}
+.todo-date {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.todo-stats {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.todo-stats-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.todo-stats-item i {
+    font-size: 1.2rem;
+}
+.todo-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+.task-item {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+[data-bs-theme="dark"] .task-item {
+    background-color: #2c2c2c;
+}
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+.task-actions button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.task-actions button:hover {
+    transform: scale(1.2);
+}
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+.add-task-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--bs-primary);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+}
+.add-task-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+[data-bs-theme="dark"] .add-task-btn {
+    background-color: var(--bs-primary);
+    color: white;
+}
